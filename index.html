@@ -342,6 +342,16 @@
             font-weight: bold;
         }
 
+        /* تنسيق مخصص لعناوين قسم الـ AI لتوزيع الإنجليزي شمال والعربي يمين */
+        .ai-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0 10px;
+            border-bottom: 1px dashed rgba(201, 40, 197, 0.3);
+            padding-bottom: 5px;
+        }
+
         /* ----- تصميم كروت الموديولز ----- */
         .modules-grid {
             display: grid;
@@ -608,9 +618,9 @@
             <ul>
                 <li><a href="#junior">Junior Level</a></li>
                 <li><a href="#senior">Senior Level</a></li>
+                <li><a href="#ai">AI Level</a></li>
                 <li><a href="#reviews">آراء الطلبة</a></li>
                 <li><a href="#portfolios">أعمال الطلاب</a></li>
-                <li><a href="#instructors">المدربون</a></li>
             </ul>
         </nav>
     </header>
@@ -618,14 +628,15 @@
     <section class="hero">
         <div class="hero-content">
             <img src="image_a55ddb.png" alt="Mantejli Logo" class="hero-image-logo">
-            <h1>احترف مونتاج الريلز</h1>
+            <h1>من التعلّم إلى الاحتراف. من المهارة إلى الشغل.</h1>
             
             <div class="hero-buttons">
-                <!-- الزر الجديد بتأثير Glassmorphism والتوهج الأبيض -->
-                <a href="#booking" class="btn-glass">
+                <!-- زر حجز المحاضرة الموجه لرابط الواتساب -->
+                <a href="https://chat.whatsapp.com/HuT3zhmd6wUDVIFe4TazS9?s=cl&p=a&mlu=4" target="_blank" class="btn-glass">
                     <span class="text-glow">حجز المحاضرة الأولى مجاناً</span>
                 </a>
-                <a href="#instructors" class="btn-outline">اكتشف التدريب</a>
+                <!-- زر تفاصيل التدريب الموجه لقسم Junior مباشرة -->
+                <a href="#junior" class="btn-outline">اكتشف التدريب</a>
             </div>
         </div>
 
@@ -914,7 +925,68 @@
         </div>
     </section>
 
-    <!-- قسم آراء الطلبة (يحتوي على الفيديوهات وصور الواتساب العرضية معاً) -->
+    <!-- قسم AI Level (Level 3) -->
+    <section id="ai" class="content-section">
+        <h2 class="section-title">AI Portfolio (Level 3)</h2>
+        
+        <div class="modules-grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+            <div class="module-card-wrapper">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-tag">M7</span>
+                        <h3 class="module-title">AI × VIDEO EDITING</h3>
+                    </div>
+                    <div class="module-subtitle">Learn to Cope</div>
+                    <p class="module-desc">مش أسماء أدوات بتتحفظ — Principles و Workflows تخليك مواكب لأي أداة جديدة تطلع.</p>
+                    
+                    <div class="ai-header-flex">
+                        <h4 style="color: var(--primary); font-size: 1.1rem;">PRE-PRODUCTION</h4>
+                        <span style="font-weight: 600; color: var(--text-dark); font-size: 0.95rem;">ما قبل الإنتاج</span>
+                    </div>
+                    <ul class="module-topics">
+                        <li>Research</li>
+                        <li>Ideas</li>
+                        <li>Scripts</li>
+                        <li>Storyboards</li>
+                    </ul>
+
+                    <div class="ai-header-flex">
+                        <h4 style="color: var(--primary); font-size: 1.1rem;">AI EDITING</h4>
+                        <span style="font-weight: 600; color: var(--text-dark); font-size: 0.95rem;">المونتاج بالذكاء الاصطناعي</span>
+                    </div>
+                    <ul class="module-topics">
+                        <li>Transcript</li>
+                        <li>Captions</li>
+                        <li>Rough Cuts</li>
+                        <li>Cleanup</li>
+                        <li>Audio</li>
+                    </ul>
+
+                    <div class="ai-header-flex">
+                        <h4 style="color: var(--primary); font-size: 1.1rem;">AI VISUALS</h4>
+                        <span style="font-weight: 600; color: var(--text-dark); font-size: 0.95rem;">المرئيات بالذكاء الاصطناعي</span>
+                    </div>
+                    <ul class="module-topics">
+                        <li>Generative Video</li>
+                        <li>Image Generation</li>
+                        <li>B-Rolls Generation</li>
+                        <li>Thumbnail Design</li>
+                        <li>Higgs Field</li>
+                    </ul>
+
+                    <div class="ai-header-flex">
+                        <h4 style="color: var(--primary); font-size: 1.1rem;">AI WORKFLOW</h4>
+                        <span style="font-weight: 600; color: var(--text-dark); font-size: 0.95rem;">سير العمل المتكامل</span>
+                    </div>
+                    <p class="module-desc" style="margin-top: 8px; margin-bottom: 15px;">تبني Workflow بيجمع بين Human Creativity و AI Tools وبرامج المونتاج، وتعرف إيه اللي يتفوّض للـ AI وإيه اللي يفضل عليك.</p>
+
+                    <div class="module-footer">بنهاية المودول: AI-Powered Editing Workflow يضاعف سرعتك وإنتاجيتك مع الحفاظ على دورك كمبدع وصاحب القرار النهائي.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم آراء الطلبة -->
     <section id="reviews" class="content-section">
         <h2 class="section-title">Students Reviews</h2>
         
@@ -940,7 +1012,7 @@
             </div>
         </div>
 
-        <!-- صور رسايل الواتساب المقاسات العرضية (Landscape) مدمجة هنا -->
+        <!-- صور رسايل الواتساب -->
         <div class="whatsapp-reviews-grid">
             <div class="whatsapp-card-wrapper">
                 <div class="whatsapp-card">
@@ -992,48 +1064,6 @@
         </div>
     </section>
 
-    <!-- قسم المدربين (Our Instructors) في آخر الصفحة -->
-    <section id="instructors" class="content-section" style="background-color: #f7f8fc;">
-        <h2 class="section-title">Our Instructors</h2>
-        
-        <div class="instructors-grid" id="instructors-grid">
-            
-            <div class="instructor-card">
-                <div class="instructor-image-wrapper">
-                    <div class="instructor-bg-shape"></div>
-                    <img src="Ali1.png" alt="Instructor 1" class="instructor-image">
-                </div>
-                <div class="instructor-info">
-                    <h3>اسم المدرب الأول</h3>
-                    <p>خبير في مونتاج الفيديوهات وتعديل الألوان بخبرة تتجاوز 5 سنوات في صناعة المحتوى والإعلانات التجارية المتقدمة.</p>
-                </div>
-            </div>
-
-            <div class="instructor-card">
-                <div class="instructor-image-wrapper">
-                    <div class="instructor-bg-shape" style="background: linear-gradient(135deg, #ff3b85 0%, #c928c5 100%);"></div>
-                    <img src="Ali2.png" alt="Instructor 2" class="instructor-image">
-                </div>
-                <div class="instructor-info">
-                    <h3>اسم المدرب الثاني</h3>
-                    <p>صانع محتوى محترف متخصص في الموشن جرافيك والمؤثرات البصرية.</p>
-                </div>
-            </div>
-
-            <div class="instructor-card">
-                <div class="instructor-image-wrapper">
-                    <div class="instructor-bg-shape" style="background: linear-gradient(135deg, #5c35ff 0%, #c928c5 100%);"></div>
-                    <img src="Youssef.png" alt="Instructor 3" class="instructor-image">
-                </div>
-                <div class="instructor-info">
-                    <h3>اسم المدرب الثالث</h3>
-                    <p>مخرج فني وصانع محتوى متميز، يركز على سيكولوجية الألوان وتصميم الصوت.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
     <script>
         // تفعيل التمرير السلس للروابط
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1049,29 +1079,8 @@
             });
         });
 
-        // سكريبت الأنيميشن عند التمرير (Intersection Observer) للـ Instructors
+        // سكريبت الأنيميشن لعدادات الأرقام (Counters)
         document.addEventListener("DOMContentLoaded", function() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.25 
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, observerOptions);
-
-            const gridSection = document.getElementById('instructors-grid');
-            if(gridSection) {
-                observer.observe(gridSection);
-            }
-
-            // سكريبت الأنيميشن لعدادات الأرقام (Counters)
             const statsContainer = document.querySelector('.stats-container');
             if (statsContainer) {
                 const counterObserver = new IntersectionObserver((entries, observer) => {
