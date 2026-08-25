@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تدريب منتجلي | Mantejli Academy</title>
+    
+    <!-- استدعاء خط IBM Plex Sans Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* ألوان منتجلي الأساسية */
+            --primary: #c928c5;
+            --secondary: #5c35ff;
+            --accent: #ff3b85;
+            --primary-gradient: linear-gradient(135deg, #5c35ff 0%, #c928c5 50%, #ff3b85 100%);
+            
+            /* ألوان الثيم الفاتح */
+            --bg-light: #f7f8fc;
+            --text-dark: #1a1a24;
+            --text-muted: #555;
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* شريط التنقل (Header) */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.3s;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        nav a:hover {
+            color: #ffebf0;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        /* الواجهة الرئيسية */
+        .hero {
+            position: relative;
+            min-height: 120vh; 
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 20px 80px; 
+            background: linear-gradient(-45deg, #5c35ff, #c928c5, #ff3b85, #5c35ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin-bottom: 40px; 
+        }
+
+        .hero-image-logo {
+            max-width: 350px; 
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); 
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 3;
+        }
+
+        /* حاوية الأزرار في الواجهة */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        /* زر التفاصيل القديم */
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* الزر الجديد (Glassmorphism) */
+        .btn-glass {
+            display: inline-block;
+            padding: 16px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            border-top: 1px solid rgba(255, 255, 255, 0.4); 
+            border-left: 1px solid rgba(255, 255, 255, 0.4); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-glass .text-glow {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 
+                         0 0 20px rgba(255, 255, 255, 0.5);
+            display: inline-block;
+            transition: text-shadow 0.4s ease;
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-glass:hover .text-glow {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 1), 
+                         0 0 30px rgba(255, 255, 255, 0.8); 
+        }
+
+        /* ----- الإحصائيات (Counters) مع بوردر متحرك ولامع ----- */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-card-wrapper {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            padding: 2px;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card-wrapper:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stat-card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.8), transparent 30%, transparent 70%, rgba(201, 40, 197, 0.9), transparent 100%);
+            animation: rotateBorder 4s linear infinite;
+            z-index: 1;
+        }
+
+        .stat-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            direction: ltr;
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .stat-icon {
+            font-size: 1.8rem;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: 'Segoe UI', monospace;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+        }
+
+        .stat-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            align-self: flex-end; 
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* حاوية الفيديو العرضي في الواجهة */
+        .hero-video-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            border-radius: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease;
+        }
+
+        .hero-video-container:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 15px;
+            object-fit: cover;
+            display: block;
+            background-color: #000;
+        }
+
+        /* الأقسام العامة */
+        section.content-section {
+            padding: 80px 5%;
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        /* ----- تصميم كروت الموديولز ----- */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 30px auto 0;
+        }
+
+        .module-card-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            padding: 2px;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .module-card-wrapper:hover {
+            transform: translateY(-5px);
+        }
+
+        .module-card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.8), transparent 30%, transparent 70%, rgba(201, 40, 197, 0.9), transparent 100%);
+            animation: rotateBorder 4s linear infinite;
+            z-index: 1;
+        }
+
+        .module-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 14px;
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
+            text-align: right;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(201, 40, 197, 0.15);
+            padding-bottom: 12px;
+        }
+
+        .module-tag {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: var(--primary-gradient);
+            padding: 5px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .module-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .module-subtitle {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .module-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .module-topics {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .module-topics li {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            padding: 6px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .module-topics li::before {
+            content: '▪';
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .module-footer {
+            margin-top: auto;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary);
+            background: rgba(92, 53, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-right: 3px solid var(--secondary);
+            line-height: 1.5;
+        }
+
+        /* ----- تنسيق صور رسايل الواتساب المقاسات العرضية (Landscape) ----- */
+        .whatsapp-reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+
+        .whatsapp-card-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            padding: 2px;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-card-wrapper:hover {
+            transform: translateY(-5px);
+        }
+
+        .whatsapp-card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(37, 211, 102, 0.8), transparent 30%, transparent 70%, rgba(201, 40, 197, 0.9), transparent 100%);
+            animation: rotateBorder 4s linear infinite;
+            z-index: 1;
+        }
+
+        .whatsapp-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .whatsapp-img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+            background-color: #e2e5ec;
+        }
+
+        /* حاوية الفيديوهات الأفقية */
+        .horizontal-scroll {
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            overflow-x: auto;
+            padding: 20px 10px 40px; 
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar { height: 8px; }
+        .horizontal-scroll::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); border-radius: 10px; }
+        .horizontal-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .video-card { flex: 0 0 280px; scroll-snap-align: center; }
+        .video-card-landscape { flex: 0 0 450px; scroll-snap-align: center; }
+
+        .video-card, .video-card-landscape, .portfolio-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04); 
+        }
+
+        .video-card:hover, .video-card-landscape:hover, .portfolio-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), 0 10px 25px rgba(201, 40, 197, 0.15);
+        }
+
+        .video-placeholder {
+            width: 100%; aspect-ratio: 9 / 16; background: #e2e5ec; display: flex; align-items: center;
+            justify-content: center; color: #888; font-weight: bold; border-bottom: 1px solid rgba(0,0,0,0.03); object-fit: cover;
+        }
+        .video-placeholder-landscape {
+            width: 100%; aspect-ratio: 16 / 9; background: #e2e5ec; display: flex; align-items: center;
+            justify-content: center; color: #888; font-weight: bold; border-bottom: 1px solid rgba(0,0,0,0.03); object-fit: cover;
+        }
+
+        .card-content { padding: 25px; }
+        .card-content h3 { color: var(--text-dark); margin-bottom: 10px; }
+        .card-content p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .portfolio-link { display: inline-block; margin-top: 15px; color: var(--primary); text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .portfolio-link:hover { color: var(--accent); padding-right: 5px; }
+
+        @media (max-width: 992px) {
+            .modules-grid { grid-template-columns: 1fr; }
+            .whatsapp-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px; gap: 15px; background: rgba(255, 255, 255, 0.15); }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            nav a { font-size: 0.9rem; }
+            .hero { padding-top: 150px; }
+            .hero-image-logo { max-width: 250px; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-buttons { flex-direction: column; gap: 15px; }
+            .btn-glass { font-size: 1.1rem; padding: 14px 40px; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .whatsapp-reviews-grid { grid-template-columns: 1fr; }
+            .hero-video-container { width: 95%; }
+            .section-title { font-size: 2rem; }
+            .video-card { flex: 0 0 250px; }
+            .video-card-landscape { flex: 0 0 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-logo">MANTEJLI</div>
+        <nav>
+            <ul>
+                <li><a href="#junior">Junior Level</a></li>
+                <li><a href="#senior">Senior Level</a></li>
+                <li><a href="#reviews">آراء الطلبة</a></li>
+                <li><a href="#portfolios">أعمال الطلاب</a></li>
+                <li><a href="#instructors">المدربون</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="image_a55ddb.png" alt="Mantejli Logo" class="hero-image-logo">
+            <h1>احترف مونتاج الريلز</h1>
+            
+            <div class="hero-buttons">
+                <!-- الزر الجديد بتأثير Glassmorphism والتوهج الأبيض -->
+                <a href="#booking" class="btn-glass">
+                    <span class="text-glow">حجز المحاضرة الأولى مجاناً</span>
+                </a>
+                <a href="#instructors" class="btn-outline">اكتشف التدريب</a>
+            </div>
+        </div>
+
+        <!-- الإحصائيات (Counters) مع إطار متحرك ولامع -->
+        <div class="stats-container">
+            <!-- كارت الفيديوهات -->
+            <div class="stat-card-wrapper">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-number">
+                            <span class="counter-prefix">+</span>
+                            <span class="counter-value" data-target="5000">0</span>
+                        </div>
+                        <div class="stat-icon">🎬</div>
+                    </div>
+                    <div class="stat-text">VIDEOS</div>
+                </div>
+            </div>
+
+            <!-- كارت العملاء -->
+            <div class="stat-card-wrapper">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-number">
+                            <span class="counter-prefix">+</span>
+                            <span class="counter-value" data-target="550">0</span>
+                        </div>
+                        <div class="stat-icon">👥</div>
+                    </div>
+                    <div class="stat-text">CLIENTS</div>
+                </div>
+            </div>
+
+            <!-- كارت المحتوى الرائج -->
+            <div class="stat-card-wrapper">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-number">
+                            <span class="counter-prefix">+</span>
+                            <span class="counter-value" data-target="1000">0</span>
+                        </div>
+                        <div class="stat-icon">🚀</div>
+                    </div>
+                    <div class="stat-text">VIRAL CONTENT</div>
+                </div>
+            </div>
+
+            <!-- كارت المشاهدات -->
+            <div class="stat-card-wrapper">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-number">
+                            <span class="counter-prefix">+</span>
+                            <span class="counter-value" data-target="50">0</span>
+                            <span class="counter-suffix">M</span>
+                        </div>
+                        <div class="stat-icon">👁️</div>
+                    </div>
+                    <div class="stat-text">VIEWS</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-video-container">
+            <video class="hero-video" controls>
+                <source src="intro-video.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <!-- قسم Junior Level -->
+    <section id="junior" class="content-section">
+        <h2 class="section-title">Junior Portfolio (Level 1)</h2>
+        
+        <div class="horizontal-scroll">
+            <div class="video-card">
+                <video class="video-placeholder" controls><source src="1.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>تطبيق عملي 1</h3><p>أساسيات واجهة After Effects وضبط الـ Keyframes.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video class="video-placeholder" controls><source src="2.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>تطبيق عملي 2</h3><p>تحريك النصوص (Typography) بشكل احترافي وجذاب.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                 <video class="video-placeholder" controls><source src="3.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>تطبيق عملي 3</h3><p>تنسيق المؤثرات الصوتية والانتقالات لزيادة التفاعل.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video class="video-placeholder" controls><source src="4.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>تطبيق عملي 4</h3><p>صناعة ريلز قوية بهدف تحقيق أعلى نسبة تحويل ومبيعات.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-scroll" style="padding-top: 0;">
+            <div class="video-card-landscape">
+                <video class="video-placeholder-landscape" controls><source src="5.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>فيديو عرضي 1</h3><p>تطبيق عملي لفيديو يوتيوب أو إعلان عرضي.</p>
+                </div>
+            </div>
+            <div class="video-card-landscape">
+                <video class="video-placeholder-landscape" controls><source src="6.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>فيديو عرضي 2</h3><p>أساسيات المونتاج للمنصات التي تدعم الفيديوهات العرضية.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Junior Modules Grid -->
+        <div class="modules-grid">
+            <div class="module-card-wrapper">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-tag">M1</span>
+                        <h3 class="module-title">EDITING FOUNDATION</h3>
+                    </div>
+                    <div class="module-subtitle">Learn to Edit</div>
+                    <p class="module-desc">تفهم أي فيديو بصريًا، تختار وترتّب اللقطات بما يخدم القصة، وتنفّذ مشروع كامل من الـ Raw Footage للنسخة النهائية.</p>
+                    <ul class="module-topics">
+                        <li>Visual Composition</li>
+                        <li>Visual Storytelling</li>
+                        <li>Editing Theory & Pacing</li>
+                        <li>Premiere Fundamentals & Pro</li>
+                        <li>Cinema Language & Sound Design</li>
+                        <li>Color Correction & Grading</li>
+                        <li>Project I & Competition I</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-card-wrapper">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-tag">M2</span>
+                        <h3 class="module-title">MOTION DESIGN</h3>
+                    </div>
+                    <div class="module-subtitle">Learn to Animate</div>
+                    <p class="module-desc">تبني Animation من الصفر في After Effects، وتعرف امتى الفيديو محتاج Motion وامتى مش محتاج.</p>
+                    <ul class="module-topics">
+                        <li>Motion Principles</li>
+                        <li>After Effects Fundamentals I & II</li>
+                        <li>Mixed Motion & Effects</li>
+                        <li>Advanced Effects & Workflow</li>
+                        <li>Project II & Project III</li>
+                        <li>Competition II</li>
+                    </ul>
+                    <div class="module-footer">بنهاية المودول: تستخدم الـ Motion Design لخدمة الفكرة والرسالة، وليس مجرد إضافة Effects.</div>
+                </div>
+            </div>
+
+            <div class="module-card-wrapper">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-tag">M3</span>
+                        <h3 class="module-title">THE EDITOR'S MIND</h3>
+                    </div>
+                    <div class="module-subtitle">Learn to Think</div>
+                    <p class="module-desc">تقرا الـ Brief، تحلّل الـ References، تطلّع أكتر من Creative Direction، وتشوف الفيديو بعين التسويق مش بعين المونتاج بس.</p>
+                    <ul class="module-topics">
+                        <li>Creative Brief & Inspiration</li>
+                        <li>Analysis I & II</li>
+                        <li>Creative Thinking</li>
+                        <li>Professional Handover</li>
+                        <li>Editing Fields & Marketing Lens</li>
+                        <li>Reel Creator & Prompts AI</li>
+                    </ul>
+                    <div class="module-footer">بنهاية المودول: تبدأ تفكّر كـ Editor يفهم الهدف من الفيديو قبل ما يفكّر في طريقة تنفيذه.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم Senior Level -->
+    <section id="senior" class="content-section" style="background-color: #ffffff;">
+        <h2 class="section-title">Senior Portfolio (Level 2)</h2>
+        
+        <div class="horizontal-scroll">
+            <div class="video-card">
+                <video class="video-placeholder" controls><source src="7.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>تطبيق متقدم 1</h3><p>احتراف الـ Camera Tracking وعزل الخلفيات.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                   <video class="video-placeholder" controls><source src="8.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>تطبيق متقدم 2</h3><p>صناعة 3D Product Transitions لإعلانات المنتجات.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                  <video class="video-placeholder" controls><source src="9.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>تطبيق متقدم 3</h3><p>دمج الذكاء الاصطناعي (AI Video-to-Video) في المونتاج.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                 <video class="video-placeholder" controls><source src="10.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>تطبيق متقدم 4</h3><p>تعديل الألوان السينمائي والـ Compositing المتقدم.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-scroll" style="padding-top: 0;">
+            <div class="video-card-landscape">
+                <video class="video-placeholder-landscape" controls><source src="11.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>مشروع عرضي 1</h3><p>تعديل الألوان والخدع البصرية لفيديو دعائي متكامل.</p>
+                </div>
+            </div>
+            <div class="video-card-landscape">
+                <video class="video-placeholder-landscape" controls><source src="12.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>مشروع عرضي 2</h3><p>إعلان تجاري متكامل بخدع بصرية عالية الجودة.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Senior Modules Grid -->
+        <div class="modules-grid">
+            <div class="module-card-wrapper">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-tag">M4</span>
+                        <h3 class="module-title">PRO EDITING</h3>
+                    </div>
+                    <div class="module-subtitle">Learn to Create</div>
+                    <p class="module-desc">مشاريع مركّبة بتجمع Editing و Motion و VFX و Sound و Color في شغل واحد، بسرعة تنفيذ محترف.</p>
+                    <ul class="module-topics">
+                        <li>Advanced Effects & 3D</li>
+                        <li>Storyboard & Presets</li>
+                        <li>Plugins, Rotoscoping & Tracking</li>
+                        <li>Advanced Promos & Complex Projects</li>
+                        <li>Project IV & Project V</li>
+                        <li>Competition III</li>
+                    </ul>
+                    <div class="module-footer">بنهاية المودول: تستلم Complex Brief وتحوّله لفيديو احترافي من غير ما تتبع Tutorial خطوة بخطوة.</div>
+                </div>
+            </div>
+
+            <div class="module-card-wrapper">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-tag">M5</span>
+                        <h3 class="module-title">CONTENT & COMMERCIAL</h3>
+                    </div>
+                    <div class="module-subtitle">Learn to Apply</div>
+                    <p class="module-desc">كل نوع محتوى وله لغة مونتاج. هنا بتتعلم تختار اللغة الصح للـ Brand والـ Platform والـ Objective.</p>
+                    <ul class="module-topics">
+                        <li>Documentary & Real Estate Style</li>
+                        <li>Promos & Ads</li>
+                        <li>Case Studies</li>
+                        <li>Project VI, VII, VIII & IX</li>
+                        <li>Competition IV — Your Style</li>
+                    </ul>
+                    <div class="module-footer">بنهاية المودول: تصنع Editing Language مناسبة لأي Brand أو Content Type، بدل حفظ Styles جاهزة.</div>
+                </div>
+            </div>
+
+            <div class="module-card-wrapper">
+                <div class="module-card">
+                    <div class="module-header">
+                        <span class="module-tag">M6</span>
+                        <h3 class="module-title">CAREER & BUSINESS</h3>
+                    </div>
+                    <div class="module-subtitle">Learn to Work</div>
+                    <p class="module-desc">تسعير، عملاء، Proposals، Revisions، Portfolio، Personal Brand، وشغل الـ Agencies — الجزء اللي بيحوّل المهارة لمسار مهني.</p>
+                    <ul class="module-topics">
+                        <li>Freelancing & Pricing</li>
+                        <li>Client Acquisition & Branding</li>
+                        <li>Portfolio & Personal Branding</li>
+                        <li>Interview Preparation</li>
+                        <li>Working with Agencies & Clients</li>
+                    </ul>
+                    <div class="module-footer">بنهاية المودول: الانتقال من «أنا بتعلم مونتاج» إلى «أنا جاهز أشتغل بالمونتاج».</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم آراء الطلبة (يحتوي على الفيديوهات وصور الواتساب العرضية معاً) -->
+    <section id="reviews" class="content-section">
+        <h2 class="section-title">Students Reviews</h2>
+        
+        <!-- فيديوهات آراء الطلبة -->
+        <div class="horizontal-scroll">
+            <div class="video-card">
+                <video class="video-placeholder" controls><source src="Israa.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>الطالبة: إسراء حنفي</h3><p></p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video class="video-placeholder" controls><source src="Omar.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>الطالب: عمر الدسوقي</h3><p></p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video class="video-placeholder" controls><source src="Shehab.mp4" type="video/mp4"></video>
+                <div class="card-content">
+                    <h3>الطالب: أحمد مصطفى</h3><p></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- صور رسايل الواتساب المقاسات العرضية (Landscape) مدمجة هنا -->
+        <div class="whatsapp-reviews-grid">
+            <div class="whatsapp-card-wrapper">
+                <div class="whatsapp-card">
+                    <img src="w1.png" alt="WhatsApp Review 1" class="whatsapp-img">
+                </div>
+            </div>
+            <div class="whatsapp-card-wrapper">
+                <div class="whatsapp-card">
+                    <img src="w2.png" alt="WhatsApp Review 2" class="whatsapp-img">
+                </div>
+            </div>
+            <div class="whatsapp-card-wrapper">
+                <div class="whatsapp-card">
+                    <img src="w3.png" alt="WhatsApp Review 3" class="whatsapp-img">
+                </div>
+            </div>
+            <div class="whatsapp-card-wrapper">
+                <div class="whatsapp-card">
+                    <img src="w4.png" alt="WhatsApp Review 4" class="whatsapp-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم بورتفوليو الطلاب -->
+    <section id="portfolios" class="content-section" style="background-color: #ffffff;">
+        <h2 class="section-title">Students Portfolios</h2>
+        <div class="grid-container">
+            <div class="portfolio-card">
+                <div class="card-content">
+                    <h3>موقع بورتفوليو 1</h3><p>يستعرض أعمال مونتاج وإعلانات قصيرة.</p><a href="https://omareldesoky999-source.github.io" target="_blank" class="portfolio-link">زيارة الموقع &larr;</a>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="card-content">
+                    <h3>موقع بورتفوليو 2</h3><p>معرض متخصص في تعديل الألوان.</p><a href="https://portfolio.mohammednabilve.workers.dev" target="_blank" class="portfolio-link">زيارة الموقع &larr;</a>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="card-content">
+                    <h3>موقع بورتفوليو 3</h3><p>بورتفوليو احترافي لـ Motion Graphics.</p><a href="#" class="portfolio-link">زيارة الموقع &larr;</a>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="card-content">
+                    <h3>موقع بورتفوليو 4</h3><p>استعراض لمشاريع التخرج الكاملة.</p><a href="#" class="portfolio-link">زيارة الموقع &larr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المدربين (Our Instructors) في آخر الصفحة -->
+    <section id="instructors" class="content-section" style="background-color: #f7f8fc;">
+        <h2 class="section-title">Our Instructors</h2>
+        
+        <div class="instructors-grid" id="instructors-grid">
+            
+            <div class="instructor-card">
+                <div class="instructor-image-wrapper">
+                    <div class="instructor-bg-shape"></div>
+                    <img src="Ali1.png" alt="Instructor 1" class="instructor-image">
+                </div>
+                <div class="instructor-info">
+                    <h3>اسم المدرب الأول</h3>
+                    <p>خبير في مونتاج الفيديوهات وتعديل الألوان بخبرة تتجاوز 5 سنوات في صناعة المحتوى والإعلانات التجارية المتقدمة.</p>
+                </div>
+            </div>
+
+            <div class="instructor-card">
+                <div class="instructor-image-wrapper">
+                    <div class="instructor-bg-shape" style="background: linear-gradient(135deg, #ff3b85 0%, #c928c5 100%);"></div>
+                    <img src="Ali2.png" alt="Instructor 2" class="instructor-image">
+                </div>
+                <div class="instructor-info">
+                    <h3>اسم المدرب الثاني</h3>
+                    <p>متخصص في الموشن جرافيك والمؤثرات البصرية (VFX)، عمل على مشاريع قوية لعلامات تجارية عالمية.</p>
+                </div>
+            </div>
+
+            <div class="instructor-card">
+                <div class="instructor-image-wrapper">
+                    <div class="instructor-bg-shape" style="background: linear-gradient(135deg, #5c35ff 0%, #c928c5 100%);"></div>
+                    <img src="Youssef.png" alt="Instructor 3" class="instructor-image">
+                </div>
+                <div class="instructor-info">
+                    <h3>اسم المدرب الثالث</h3>
+                    <p>مخرج فني وصانع محتوى متميز، يركز على سيكولوجية الألوان وتصميم الصوت لإنشاء ريلز سريعة الانتشار.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // تفعيل التمرير السلس للروابط
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // سكريبت الأنيميشن عند التمرير (Intersection Observer) للـ Instructors
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.25 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const gridSection = document.getElementById('instructors-grid');
+            if(gridSection) {
+                observer.observe(gridSection);
+            }
+
+            // سكريبت الأنيميشن لعدادات الأرقام (Counters)
+            const statsContainer = document.querySelector('.stats-container');
+            if (statsContainer) {
+                const counterObserver = new nestedIntersectionObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const counters = entry.target.querySelectorAll('.counter-value');
+                            counters.forEach(counter => {
+                                const target = +counter.getAttribute('data-target');
+                                let count = 0;
+                                
+                                const updateCount = () => {
+                                    const inc = target / 40; 
+                                    if (count < target) {
+                                        count += inc;
+                                        counter.innerText = Math.ceil(count);
+                                        setTimeout(updateCount, 30);
+                                    } else {
+                                        counter.innerText = target;
+                                    }
+                                };
+                                updateCount();
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                counterObserver.observe(statsContainer);
+            }
+        });
+    </script>
+</body>
+</html>
