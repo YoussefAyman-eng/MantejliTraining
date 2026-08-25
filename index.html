@@ -335,12 +335,13 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.3rem;
+            margin-bottom: 40px;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: bold;
+            word-spacing: 2px;
         }
 
         /* تنسيق مخصص لعناوين قسم الـ AI لتوزيع الإنجليزي شمال والعربي يمين */
@@ -532,20 +533,14 @@
             background-color: #e2e5ec;
         }
 
-        /* حاوية الفيديوهات الأفقية */
-        .horizontal-scroll {
-            display: flex;
-            flex-direction: row;
+        /* تحويل السلايدر الأفقي إلى شبكة منظمة (Grid) تمنع خروج الموبايل أو قفل الكروم */
+        .videos-grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
-            overflow-x: auto;
-            padding: 20px 10px 40px; 
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
+            max-width: 1200px;
+            margin: 0 auto 30px;
         }
-
-        .horizontal-scroll::-webkit-scrollbar { height: 8px; }
-        .horizontal-scroll::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); border-radius: 10px; }
-        .horizontal-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
         .grid-container {
             display: grid;
@@ -553,9 +548,6 @@
             gap: 30px;
             margin-bottom: 40px;
         }
-
-        .video-card { flex: 0 0 280px; scroll-snap-align: center; }
-        .video-card-landscape { flex: 0 0 450px; scroll-snap-align: center; }
 
         .video-card, .video-card-landscape, .portfolio-card {
             background: var(--card-bg);
@@ -568,7 +560,7 @@
         }
 
         .video-card:hover, .video-card-landscape:hover, .portfolio-card:hover {
-            transform: translateY(-12px);
+            transform: translateY(-8px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), 0 10px 25px rgba(201, 40, 197, 0.15);
         }
 
@@ -595,8 +587,8 @@
 
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 15px; gap: 15px; background: rgba(255, 255, 255, 0.15); }
-            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
-            nav a { font-size: 0.9rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+            nav a { font-size: 0.85rem; }
             .hero { padding-top: 150px; }
             .hero-image-logo { max-width: 250px; }
             .hero h1 { font-size: 2.2rem; }
@@ -605,9 +597,7 @@
             .stats-container { grid-template-columns: repeat(2, 1fr); gap: 15px; }
             .whatsapp-reviews-grid { grid-template-columns: 1fr; }
             .hero-video-container { width: 95%; }
-            .section-title { font-size: 2rem; }
-            .video-card { flex: 0 0 250px; }
-            .video-card-landscape { flex: 0 0 300px; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -710,9 +700,9 @@
 
     <!-- قسم Junior Level -->
     <section id="junior" class="content-section">
-        <h2 class="section-title">Junior Portfolio (Level 1)</h2>
+        <h2 class="section-title">Junior Portfolio &nbsp;|&nbsp; Level 1</h2>
         
-        <div class="horizontal-scroll">
+        <div class="videos-grid-section">
             <div class="video-card">
                 <video class="video-placeholder" controls><source src="1.mp4" type="video/mp4"></video>
                 <div class="card-content">
@@ -739,14 +729,14 @@
             </div>
         </div>
 
-        <div class="horizontal-scroll" style="padding-top: 0;">
-            <div class="video-card-landscape">
+        <div class="videos-grid-section" style="max-width: 920px;">
+            <div class="video-card-landscape" style="width: 100%;">
                 <video class="video-placeholder-landscape" controls><source src="5.mp4" type="video/mp4"></video>
                 <div class="card-content">
                     <h3>فيديو عرضي 1</h3><p>تطبيق عملي لفيديو يوتيوب أو إعلان عرضي.</p>
                 </div>
             </div>
-            <div class="video-card-landscape">
+            <div class="video-card-landscape" style="width: 100%;">
                 <video class="video-placeholder-landscape" controls><source src="6.mp4" type="video/mp4"></video>
                 <div class="card-content">
                     <h3>فيديو عرضي 2</h3><p>أساسيات المونتاج للمنصات التي تدعم الفيديوهات العرضية.</p>
@@ -820,9 +810,9 @@
 
     <!-- قسم Senior Level -->
     <section id="senior" class="content-section" style="background-color: #ffffff;">
-        <h2 class="section-title">Senior Portfolio (Level 2)</h2>
+        <h2 class="section-title">Senior Portfolio &nbsp;|&nbsp; Level 2</h2>
         
-        <div class="horizontal-scroll">
+        <div class="videos-grid-section">
             <div class="video-card">
                 <video class="video-placeholder" controls><source src="7.mp4" type="video/mp4"></video>
                 <div class="card-content">
@@ -849,14 +839,14 @@
             </div>
         </div>
 
-        <div class="horizontal-scroll" style="padding-top: 0;">
-            <div class="video-card-landscape">
+        <div class="videos-grid-section" style="max-width: 920px;">
+            <div class="video-card-landscape" style="width: 100%;">
                 <video class="video-placeholder-landscape" controls><source src="11.mp4" type="video/mp4"></video>
                 <div class="card-content">
                     <h3>مشروع عرضي 1</h3><p>تعديل الألوان والخدع البصرية لفيديو دعائي متكامل.</p>
                 </div>
             </div>
-            <div class="video-card-landscape">
+            <div class="video-card-landscape" style="width: 100%;">
                 <video class="video-placeholder-landscape" controls><source src="12.mp4" type="video/mp4"></video>
                 <div class="card-content">
                     <h3>مشروع عرضي 2</h3><p>إعلان تجاري متكامل بخدع بصرية عالية الجودة.</p>
@@ -928,7 +918,7 @@
 
     <!-- قسم AI Level (Level 3) -->
     <section id="ai" class="content-section">
-        <h2 class="section-title">AI Portfolio (Level 3)</h2>
+        <h2 class="section-title">AI Portfolio &nbsp;|&nbsp; Level 3</h2>
         
         <div class="modules-grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
             <div class="module-card-wrapper">
@@ -991,8 +981,8 @@
     <section id="reviews" class="content-section">
         <h2 class="section-title">Students Reviews</h2>
         
-        <!-- فيديوهات آراء الطلبة -->
-        <div class="horizontal-scroll">
+        <!-- فيديوهات آراء الطلبة (تم تحويلها لشباك منظم آمن للموبايل) -->
+        <div class="videos-grid-section">
             <div class="video-card">
                 <video class="video-placeholder" controls><source src="Israa.mp4" type="video/mp4"></video>
                 <div class="card-content">
