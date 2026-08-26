@@ -322,6 +322,105 @@
             background-color: #000;
         }
 
+        /* ----- قسم المشكلة (ليه أغلب الناس مش بتوصل للشغل؟) ----- */
+        .problem-section {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1000px;
+            margin: 60px auto 20px;
+            text-align: right;
+            padding: 0 15px;
+        }
+
+        .problem-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .problem-card-wrapper {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            padding: 2px;
+            display: flex;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card-wrapper:hover {
+            transform: translateY(-4px);
+        }
+
+        .problem-card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.6), transparent 30%, transparent 70%, rgba(255, 59, 133, 0.8), transparent 100%);
+            animation: rotateBorder 5s linear infinite;
+            z-index: 1;
+        }
+
+        .problem-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(20, 18, 30, 0.65);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .problem-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Segoe UI', monospace;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-width: 35px;
+        }
+
+        .problem-text {
+            font-size: 0.95rem;
+            color: #f1f1f5;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .problem-result {
+            background: rgba(255, 59, 133, 0.15);
+            border: 1px solid rgba(255, 59, 133, 0.4);
+            border-radius: 12px;
+            padding: 18px 25px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffc2de;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(255, 59, 133, 0.15);
+            letter-spacing: 0.5px;
+        }
+
         /* الأقسام العامة */
         section.content-section {
             padding: 60px 5%;
@@ -577,6 +676,7 @@
         @media (max-width: 992px) {
             .modules-grid { grid-template-columns: 1fr; }
             .whatsapp-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+            .problem-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -599,6 +699,10 @@
             .section-title { font-size: 1.5rem; margin-bottom: 25px; }
             .module-card { padding: 20px 15px; }
             .card-content { padding: 15px; }
+            .problem-title { font-size: 1.4rem; }
+            .problem-card { padding: 15px; }
+            .problem-text { font-size: 0.88rem; }
+            .problem-result { font-size: 0.95rem; padding: 15px; }
         }
     </style>
 </head>
@@ -632,9 +736,8 @@
             </div>
         </div>
 
-        <!-- الإحصائيات (Counters) مع إطار متحرك ولامع -->
+        <!-- الإحصائيات (Counters) -->
         <div class="stats-container">
-            <!-- كارت الفيديوهات -->
             <div class="stat-card-wrapper">
                 <div class="stat-card">
                     <div class="stat-header">
@@ -648,7 +751,6 @@
                 </div>
             </div>
 
-            <!-- كارت العملاء -->
             <div class="stat-card-wrapper">
                 <div class="stat-card">
                     <div class="stat-header">
@@ -662,7 +764,6 @@
                 </div>
             </div>
 
-            <!-- كارت المحتوى الرائج -->
             <div class="stat-card-wrapper">
                 <div class="stat-card">
                     <div class="stat-header">
@@ -676,7 +777,6 @@
                 </div>
             </div>
 
-            <!-- كارت المشاهدات -->
             <div class="stat-card-wrapper">
                 <div class="stat-card">
                     <div class="stat-header">
@@ -692,10 +792,78 @@
             </div>
         </div>
 
+        <!-- فيديو الـ VSL التعريفي -->
         <div class="hero-video-container">
             <video class="hero-video" controls>
                 <source src="intro-video.mp4" type="video/mp4">
             </video>
+        </div>
+
+        <!-- قسم المشكلة (أسباب عدم الوصول للشغل) -->
+        <div class="problem-section">
+            <h2 class="problem-title">ليه أغلب الناس بتتعلم مونتاج وبتوصلش لمستوى الشغل؟</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-card-wrapper">
+                    <div class="problem-card">
+                        <div class="problem-number">01</div>
+                        <div class="problem-text">بيتعلموا من مصادر كتير من غير Roadmap</div>
+                    </div>
+                </div>
+
+                <div class="problem-card-wrapper">
+                    <div class="problem-card">
+                        <div class="problem-number">02</div>
+                        <div class="problem-text">بيركزوا على البرامج أكتر من فهم صناعة الفيديو</div>
+                    </div>
+                </div>
+
+                <div class="problem-card-wrapper">
+                    <div class="problem-card">
+                        <div class="problem-number">03</div>
+                        <div class="problem-text">بيتفرجوا أكتر ما بيطبقوا</div>
+                    </div>
+                </div>
+
+                <div class="problem-card-wrapper">
+                    <div class="problem-card">
+                        <div class="problem-number">04</div>
+                        <div class="problem-text">بيعملوا Projects مش بتشبه شغل السوق</div>
+                    </div>
+                </div>
+
+                <div class="problem-card-wrapper">
+                    <div class="problem-card">
+                        <div class="problem-number">05</div>
+                        <div class="problem-text">عندهم Technical Skills لكن مفيش Creative Thinking</div>
+                    </div>
+                </div>
+
+                <div class="problem-card-wrapper">
+                    <div class="problem-card">
+                        <div class="problem-number">06</div>
+                        <div class="problem-text">مش عارفين يقيّموا شغلهم صح ويطوّروه</div>
+                    </div>
+                </div>
+
+                <div class="problem-card-wrapper">
+                    <div class="problem-card">
+                        <div class="problem-number">07</div>
+                        <div class="problem-text">مش عارفين يبنوا Portfolio</div>
+                    </div>
+                </div>
+
+                <div class="problem-card-wrapper">
+                    <div class="problem-card">
+                        <div class="problem-number">08</div>
+                        <div class="problem-text">مش عارفين يستخدموا الـ AI لصالحهم</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem-result">
+                النتيجة: مهارات متفرقة، مفيش مستوى.
+            </div>
         </div>
     </section>
 
@@ -1078,8 +1246,8 @@
                 const counterObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            const counters = entry.target.querySelectorAll('.counter-value');
-                            counters.forEach(counter => {
+                            TheCounters = entry.target.querySelectorAll('.counter-value');
+                            TheCounters.forEach(counter => {
                                 const target = +counter.getAttribute('data-target');
                                 let count = 0;
                                 
