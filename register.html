@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الانضمام | تدريب منتجلي</title>
+
+    <!-- استدعاء خط IBM Plex Sans Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #c928c5;
+            --secondary: #5c35ff;
+            --accent: #ff3b85;
+            --primary-gradient: linear-gradient(135deg, #5c35ff 0%, #c928c5 50%, #ff3b85 100%);
+            --bg-light: #f7f8fc;
+            --text-dark: #1a1a24;
+            --text-muted: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #5c35ff, #c928c5, #ff3b85, #5c35ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .registration-container {
+            width: 100%;
+            max-width: 550px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: right;
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-area h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .registration-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            background: #fafbfd;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(201, 40, 197, 0.15);
+            background: #fff;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 40px;
+            margin-top: 8px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .radio-label input[type="radio"] {
+            accent-color: var(--primary);
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(201, 40, 197, 0.35);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(201, 40, 197, 0.5);
+        }
+
+        #form-message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="registration-container">
+        <div class="logo-area">
+            <h2>MANTEJLI ACADEMY</h2>
+        </div>
+        <p class="registration-desc">املأ النموذج أدناه لتسجيل بياناتك والانضمام لتدريبات المونتاج الاحترافية.</p>
+        
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="name">الاسم الكامل:</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="أدخل اسمك ثلاثي" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">رقم الموبايل:</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="مثال: 01012345678" required>
+            </div>
+
+            <div class="form-group">
+                <label>هل عندك خبرة سابقة في المونتاج؟</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="hasExperience" value="نعم" required> نعم
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="hasExperience" value="لا" required> لا
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="experienceDetails">نبذة عن خبرتك:</label>
+                <textarea id="experienceDetails" name="experienceDetails" class="form-control" rows="3" placeholder="اكتب نبذة مختصرة عن البرامج أو مستواك الحالي..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submit-btn">إرسال البيانات وتسجيل الطلب</button>
+            <div id="form-message"></div>
+        </form>
+
+        <a href="index.html" class="back-home">&larr; العودة إلى الموقع الرئيسي</a>
+    </div>
+
+    <script>
+        // رابط الـ Web App الخاص بك الذي تم ربطه مباشرة بالفورم
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzMkU0bWSuGyX_LCPcgnZ1pT80360CwfULkEkTu-D8b-8tqg7RjJ18EBhR_xkp9Zuk33Q/exec'; 
+
+        const form = document.getElementById('registration-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'جاري الإرسال...';
+            formMessage.style.color = '#5c35ff';
+            formMessage.innerText = 'برجاء الانتظار، يتم تسجيل بياناتك...';
+
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                hasExperience: document.querySelector('input[name="hasExperience"]:checked').value,
+                experienceDetails: document.getElementById('experienceDetails').value
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                formMessage.style.color = '#25d366';
+                formMessage.innerText = 'تم تسجيل بياناتك بنجاح! سنتواصل معك قريباً.';
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'إرسال البيانات وتسجيل الطلب';
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                formMessage.style.color = '#ff3b85';
+                formMessage.innerText = 'حدث خطأ أثناء الإرسال، برجاء المحاولة مرة أخرى.';
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'إرسال البيانات وتسجيل الطلب';
+            });
+        });
+    </script>
+</body>
+</html>
