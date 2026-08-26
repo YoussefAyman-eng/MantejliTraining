@@ -214,8 +214,8 @@
     </div>
 
     <script>
-        // رابط الـ Web App الجديد الخاص بك
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwGAP4ZaKs5PDR7fT9BBIuGJ00LKXgBvlG7sEbI8qUN-qq_2GSjLbxkVNlMCu--OyWjPw/exec'; 
+        const whatsappChannelURL = 'https://whatsapp.com/channel/0029Vb8K0y9IN9ijzAmRpT3b';
 
         const form = document.getElementById('registration-form');
         const submitBtn = document.getElementById('submit-btn');
@@ -224,9 +224,9 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             submitBtn.disabled = true;
-            submitBtn.innerText = 'جاري الإرسال...';
+            submitBtn.innerText = 'جاري الإرسال وتحويلك للقناة...';
             formMessage.style.color = '#5c35ff';
-            formMessage.innerText = 'برجاء الانتظار، يتم تسجيل بياناتك...';
+            formMessage.innerText = 'برجاء الانتظار، يتم حفظ بياناتك...';
 
             const formData = {
                 name: document.getElementById('name').value,
@@ -243,10 +243,12 @@
             })
             .then(() => {
                 formMessage.style.color = '#25d366';
-                formMessage.innerText = 'تم تسجيل بياناتك بنجاح! سنتواصل معك قريباً.';
-                form.reset();
-                submitBtn.disabled = false;
-                submitBtn.innerText = 'إرسال البيانات وتسجيل الطلب';
+                formMessage.innerText = 'تم التسجيل بنجاح! يتم نقلك الآن لقناة الواتساب...';
+                
+                // تحويل المستخدم إلى رابط الواتساب مباشرة بعد إتمام التسجيل بنجاح
+                setTimeout(() => {
+                    window.location.href = whatsappChannelURL;
+                }, 1000); // تأخير ثانية واحدة لكي يلحق المستخدم قراءة رسالة النجاح
             })
             .catch(error => {
                 console.error('Error!', error.message);
