@@ -214,8 +214,7 @@
     </div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwGAP4ZaKs5PDR7fT9BBIuGJ00LKXgBvlG7sEbI8qUN-qq_2GSjLbxkVNlMCu--OyWjPw/exec'; 
-        const whatsappChannelURL = 'https://whatsapp.com/channel/0029Vb8K0y9IN9ijzAmRpT3b';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxM5vYsG1ie_R-R_pl2Z5I0xO4c6BRdRld1Lg7mr13Xry2dYnbJik8ePtKizgKknk4mkw/exec';        const whatsappChannelURL = 'https://whatsapp.com/channel/0029Vb8K0y9IN9ijzAmRpT3b';
 
         const form = document.getElementById('registration-form');
         const submitBtn = document.getElementById('submit-btn');
@@ -228,27 +227,24 @@
             formMessage.style.color = '#5c35ff';
             formMessage.innerText = 'برجاء الانتظار، يتم حفظ بياناتك...';
 
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                hasExperience: document.querySelector('input[name="hasExperience"]:checked').value,
-                experienceDetails: document.getElementById('experienceDetails').value
-            };
+            const formData = new URLSearchParams();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('hasExperience', document.querySelector('input[name="hasExperience"]:checked').value);
+            formData.append('experienceDetails', document.getElementById('experienceDetails').value);
 
             fetch(scriptURL, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: formData
             })
             .then(() => {
                 formMessage.style.color = '#25d366';
                 formMessage.innerText = 'تم التسجيل بنجاح! يتم نقلك الآن لقناة الواتساب...';
                 
-                // تحويل المستخدم إلى رابط الواتساب مباشرة بعد إتمام التسجيل بنجاح
                 setTimeout(() => {
                     window.location.href = whatsappChannelURL;
-                }, 1000); // تأخير ثانية واحدة لكي يلحق المستخدم قراءة رسالة النجاح
+                }, 1000);
             })
             .catch(error => {
                 console.error('Error!', error.message);
