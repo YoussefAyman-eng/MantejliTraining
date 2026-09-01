@@ -1341,8 +1341,8 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-logo">MANTEJLI</div>
+   <header>
+        <a href="#hero" class="header-logo" style="text-decoration: none;">MANTEJLI</a>
         <nav>
             <ul>
                 <li><a href="#junior">Junior</a></li>
@@ -1354,8 +1354,9 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
+            <!-- باقي محتوى الهيرو -->
             <img src="image_a55ddb.png" alt="Mantejli Logo" class="hero-image-logo">
             <h1>من التعلّم إلى الاحتراف.. من المهارة إلى الشغل</h1>
 
@@ -1554,7 +1555,8 @@
                 <div class="module-card-wrapper"><div class="module-card"><div class="module-header"><span class="module-tag">M6</span><h3 class="module-title">CAREER & BUSINESS</h3></div><div class="module-subtitle">Learn to Work</div><p class="module-desc">تسعير، عملاء، Proposals، Revisions، Portfolio، وشغل الـ Agencies.</p><ul class="module-topics"><li>Freelancing & Pricing</li><li>Client Acquisition</li><li>Portfolio Branding</li><li>Working with Agencies</li></ul></div></div>
             </div>
 
-            <!-- فيديوهات Senior (عمودي 3D) -->
+
+<!-- فيديوهات Senior (عمودي 3D) -->
             <div style="max-width: 400px; width: 100%; margin: 40px auto 20px;">
                 <h3 style="text-align:center; color:var(--text-dark); margin-bottom:15px; font-size:1.1rem;">📱 ريلز وتطبيقات متقدمة</h3>
                 <div class="video-slider-wrapper" id="seniorVert">
@@ -1565,18 +1567,20 @@
                         <div class="carousel-slide active" data-index="0" onclick="handleSlideClick('seniorVert', 0)"><div class="video-card"><video class="video-placeholder-vertical" controls><source src="7.mp4" type="video/mp4"></video></div></div>
                         <div class="carousel-slide next" data-index="1" onclick="handleSlideClick('seniorVert', 1)"><div class="video-card"><video class="video-placeholder-vertical" controls><source src="8.mp4" type="video/mp4"></video></div></div>
                         <div class="carousel-slide hidden-right" data-index="2" onclick="handleSlideClick('seniorVert', 2)"><div class="video-card"><video class="video-placeholder-vertical" controls><source src="9.mp4" type="video/mp4"></video></div></div>
-                        <div class="carousel-slide prev" data-index="3" onclick="handleSlideClick('seniorVert', 3)"><div class="video-card"><video class="video-placeholder-vertical" controls><source src="10.mp4" type="video/mp4"></video></div></div>
+                        <div class="carousel-slide hidden-right" data-index="3" onclick="handleSlideClick('seniorVert', 3)"><div class="video-card"><video class="video-placeholder-vertical" controls><source src="10.mp4" type="video/mp4"></video></div></div>
+                        <div class="carousel-slide prev" data-index="4" onclick="handleSlideClick('seniorVert', 4)"><div class="video-card"><video class="video-placeholder-vertical" controls><source src="10_1.mp4" type="video/mp4"></video></div></div>
                     </div>
                     <div class="slider-dots" id="seniorDotsVert">
                         <span class="slider-dot active" onclick="jumpTo3DCarousel('seniorVert', 0)"></span>
                         <span class="slider-dot" onclick="jumpTo3DCarousel('seniorVert', 1)"></span>
                         <span class="slider-dot" onclick="jumpTo3DCarousel('seniorVert', 2)"></span>
                         <span class="slider-dot" onclick="jumpTo3DCarousel('seniorVert', 3)"></span>
+                        <span class="slider-dot" onclick="jumpTo3DCarousel('seniorVert', 4)"></span>
                     </div>
                 </div>
             </div>
 
-            <!-- فيديوهات Senior (عرضي 3D) -->
+  <!-- فيديوهات Senior (عرضي 3D) -->
             <div style="max-width: 650px; width: 100%; margin: 40px auto 0;">
                 <h3 style="text-align:center; color:var(--text-dark); margin-bottom:15px; font-size:1.1rem;">💻 مشاريع إعلانية عرضية</h3>
                 <div class="video-slider-wrapper horizontal-mode" id="seniorHoriz">
@@ -1587,10 +1591,12 @@
                     <div class="carousel-track">
                         <div class="carousel-slide active" data-index="0" onclick="handleSlideClick('seniorHoriz', 0)"><div class="video-card"><video class="video-placeholder-horizontal" controls><source src="11.mp4" type="video/mp4"></video></div></div>
                         <div class="carousel-slide next" data-index="1" onclick="handleSlideClick('seniorHoriz', 1)"><div class="video-card"><video class="video-placeholder-horizontal" controls><source src="12.mp4" type="video/mp4"></video></div></div>
+                        <div class="carousel-slide prev" data-index="2" onclick="handleSlideClick('seniorHoriz', 2)"><div class="video-card"><video class="video-placeholder-horizontal" controls><source src="13.mp4" type="video/mp4"></video></div></div>
                     </div>
                     <div class="slider-dots" id="seniorDotsHoriz">
                         <span class="slider-dot active" onclick="jumpTo3DCarousel('seniorHoriz', 0)"></span>
                         <span class="slider-dot" onclick="jumpTo3DCarousel('seniorHoriz', 1)"></span>
+                        <span class="slider-dot" onclick="jumpTo3DCarousel('seniorHoriz', 2)"></span>
                     </div>
                 </div>
             </div>
